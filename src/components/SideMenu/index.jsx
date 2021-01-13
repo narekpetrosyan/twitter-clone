@@ -6,9 +6,10 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import TurnedInNotIcon from "@material-ui/icons/TurnedInNot";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
-import { Button, IconButton, Typography } from "@material-ui/core";
+import { Button, Hidden, IconButton, Typography } from "@material-ui/core";
+import CreateIcon from "@material-ui/icons/Create";
 
-export const SideMenu = ({ classes }) => {
+export const SideMenu = ({ classes, handleClickOpen }) => {
   return (
     <ul className={classes.sideMenuList}>
       <li className={classes.sideMenuListItem}>
@@ -19,59 +20,74 @@ export const SideMenu = ({ classes }) => {
       <li className={classes.sideMenuListItem}>
         <div>
           <SearchIcon className={classes.sideMenuListItemIcon} />
-          <Typography className={classes.sideMenuListItemLabel} variant="h6">
-            Поиск
-          </Typography>
+          <Hidden smDown>
+            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+              Поиск
+            </Typography>
+          </Hidden>
         </div>
       </li>
       <li className={classes.sideMenuListItem}>
         <div>
           <NotificationsNoneIcon className={classes.sideMenuListItemIcon} />
-          <Typography className={classes.sideMenuListItemLabel} variant="h6">
-            Уведомления
-          </Typography>
+          <Hidden smDown>
+            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+              Уведомления
+            </Typography>
+          </Hidden>
         </div>
       </li>
       <li className={classes.sideMenuListItem}>
         <div>
           <MailOutlineIcon className={classes.sideMenuListItemIcon} />
-          <Typography className={classes.sideMenuListItemLabel} variant="h6">
-            Сообщения
-          </Typography>
+          <Hidden smDown>
+            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+              Сообщения
+            </Typography>
+          </Hidden>
         </div>
       </li>
       <li className={classes.sideMenuListItem}>
         <div>
           <TurnedInNotIcon className={classes.sideMenuListItemIcon} />
-          <Typography className={classes.sideMenuListItemLabel} variant="h6">
-            Закладки
-          </Typography>
+          <Hidden smDown>
+            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+              Закладки
+            </Typography>
+          </Hidden>
         </div>
       </li>
       <li className={classes.sideMenuListItem}>
         <div>
           <ListAltIcon className={classes.sideMenuListItemIcon} />
-          <Typography className={classes.sideMenuListItemLabel} variant="h6">
-            Список
-          </Typography>
+          <Hidden smDown>
+            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+              Список
+            </Typography>
+          </Hidden>
         </div>
       </li>
       <li className={classes.sideMenuListItem}>
         <div>
           <PersonOutlineIcon className={classes.sideMenuListItemIcon} />
-          <Typography className={classes.sideMenuListItemLabel} variant="h6">
-            Профиль
-          </Typography>
+          <Hidden smDown>
+            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+              Профиль
+            </Typography>
+          </Hidden>
         </div>
       </li>
       <li className={classes.sideMenuListItem}>
         <Button
           className={classes.sideMenuTweetutton}
           variant="contained"
-          fullWidth
           color="primary"
+          onClick={handleClickOpen}
         >
-          Твитнуть
+          <Hidden smDown>Твитнуть</Hidden>
+          <Hidden mdUp>
+            <CreateIcon />
+          </Hidden>
         </Button>
       </li>
     </ul>
