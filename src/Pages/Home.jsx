@@ -18,6 +18,9 @@ import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
 import { RightMenu } from "./../components/RightMenu/index";
 import { DialogAddTweet } from "./../components/SideMenu/DialogAddTweet";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTweets } from "../store/tweets/actionCreators";
+import { Loader } from "./../components/Loader/index";
 
 const useHomeStyles = makeStyles((theme) => ({
   wrapper: {
@@ -161,6 +164,13 @@ const useHomeStyles = makeStyles((theme) => ({
 
 export const Home = () => {
   const classes = useHomeStyles();
+  const dispatch = useDispatch();
+  const tweets = useSelector((state) => state.tweets.items);
+  const isLoading = useSelector((state) => state.tweets.loadingState);
+
+  React.useEffect(() => {
+    dispatch(fetchTweets());
+  }, [dispatch]);
 
   const [val, setVal] = React.useState("");
 
@@ -229,23 +239,13 @@ export const Home = () => {
                 </div>
               </div>
             </Paper>
-            {[
-              ...new Array(10).fill(
-                <Tweet
-                  classes={classes}
-                  user={{
-                    fullname: "Abdula Baldua",
-                    username: "AbdaLua",
-                    avatarUrl:
-                      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-                  }}
-                  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-            perferendis esse earum velit distinctio non eaque, animi architecto
-            accusamus minus error rem quo corrupti! Quas aut eaque et earum
-            fuga!"
-                />
-              ),
-            ]}
+            {isLoading ? (
+              <Loader />
+            ) : (
+              tweets.map((tweet) => (
+                <Tweet classes={classes} key={tweet._id} {...tweet} />
+              ))
+            )}
           </Paper>
         </Grid>
         <Grid item xs={3}>

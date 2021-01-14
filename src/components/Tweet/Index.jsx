@@ -7,7 +7,7 @@ import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import PresentToAllIcon from "@material-ui/icons/PresentToAll";
 
-export const Tweet = React.memo(({ classes, user, avatarUrl, text }) => {
+export const Tweet = React.memo(({ classes, user, text }) => {
   return (
     <Paper
       className={classNames(classes.tweet, classes.tweetsWrapperHeader)}
@@ -15,13 +15,13 @@ export const Tweet = React.memo(({ classes, user, avatarUrl, text }) => {
     >
       <Avatar
         className={classes.tweetAvatar}
-        alt={`Avatar alt ${user.fullname}`}
+        alt={`Avatar alt ${user.fullName}`}
         src={user.avatarUrl}
       />
 
       <Typography variant="">
-        <b>{user.fullname}</b>
-        <span className={classes.tweetUserName}>@{user.username}</span>
+        <b>{user.fullName}</b>
+        <span className={classes.tweetUserName}>@{user.userName}</span>
       </Typography>
       <Typography variant="body1" gutterBottom>
         {text}
