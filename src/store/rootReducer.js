@@ -1,6 +1,10 @@
 import { combineReducers } from "redux";
-import { tweetReducer } from "./tweets/tweetReducer";
+import { tagReducer } from "./tags/tagReducer";
+import { tweetsReducer } from "./tweets/tweetsReducer";
+import { tweetReducer } from "./tweet/tweetReducer";
 
 export const rootReducer = combineReducers({
-  tweets: tweetReducer,
+  tweets: tweetsReducer,
+  tags: tagReducer,
+  tweet: tweetReducer,
 });

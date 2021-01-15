@@ -8,14 +8,17 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import { Button, Hidden, IconButton, Typography } from "@material-ui/core";
 import CreateIcon from "@material-ui/icons/Create";
+import { Link } from "react-router-dom";
 
 export const SideMenu = ({ classes, handleClickOpen }) => {
   return (
     <ul className={classes.sideMenuList}>
       <li className={classes.sideMenuListItem}>
-        <IconButton className={classes.logo} color="primary">
-          <TwitterIcon color="primary" className={classes.logoIcon} />
-        </IconButton>
+        <Link to="/home">
+          <IconButton className={classes.logo} color="primary">
+            <TwitterIcon color="primary" className={classes.logoIcon} />
+          </IconButton>
+        </Link>
       </li>
       <li className={classes.sideMenuListItem}>
         <div>

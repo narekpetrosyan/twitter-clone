@@ -10,6 +10,11 @@ import {
   IconButton,
 } from "@material-ui/core";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTags } from "../../store/tags/actionCreators";
+import { Theme } from "./Theme/Theme";
+import { TagLoader } from "./../Loaders/TagLoader";
+import { Link } from "react-router-dom";
 
 const rightMenuStyles = makeStyles((theme) => ({
   rightMenu: {
@@ -22,6 +27,10 @@ const rightMenuStyles = makeStyles((theme) => ({
     borderRadius: 13,
     paddingTop: "5px",
     paddingBottom: "5px",
+    "& a": {
+      textDecoration: "none",
+      color: "black",
+    },
   },
   rightMenuActualsHead: {
     fontWeight: "800",
@@ -82,6 +91,15 @@ const SearchTextField = withStyles(() =>
 export const RightMenu = () => {
   const classes = rightMenuStyles();
 
+  const dispatch = useDispatch();
+
+  const tags = useSelector((state) => state.tags.items);
+  const isLoading = useSelector((state) => state.tags.loadingState);
+
+  React.useEffect(() => {
+    dispatch(fetchTags());
+  }, [dispatch]);
+
   return (
     <div className={classes.rightMenu}>
       <SearchTextField fullWidth placeholder="Поиск в Твиттере" />
@@ -90,18 +108,15 @@ export const RightMenu = () => {
         <Typography className={classes.rightMenuActualsHead} variant="h6">
           Актуальные темы
         </Typography>
-        <div className={classes.rightMenuActual}>
-          <p>Санкт-Петербург</p>
-          <span>Твитов։ 3081</span>
-        </div>
-        <div className={classes.rightMenuActual}>
-          <p>Санкт-Петербург</p>
-          <span>Твитов։ 3081</span>
-        </div>
-        <div className={classes.rightMenuActual}>
-          <p>Санкт-Петербург</p>
-          <span>Твитов։ 3081</span>
-        </div>
+        {isLoading ? (
+          <TagLoader />
+        ) : (
+          tags.map((tag) => (
+            <Link to={`/home/search?q=${tag.name}`}>
+              <Theme key={tag._id} {...tag} classes={classes} />
+            </Link>
+          ))
+        )}
       </Paper>
 
       <Paper className={classes.rightMenuRead}>

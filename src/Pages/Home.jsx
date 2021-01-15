@@ -20,7 +20,10 @@ import { RightMenu } from "./../components/RightMenu/index";
 import { DialogAddTweet } from "./../components/SideMenu/DialogAddTweet";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTweets } from "../store/tweets/actionCreators";
-import { Loader } from "./../components/Loader/index";
+import { TweetLoader } from "./../components/Loaders/TweetLoader";
+import { Link, Route, useHistory } from "react-router-dom";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { FullTweet } from "./components/FullTweet";
 
 const useHomeStyles = makeStyles((theme) => ({
   wrapper: {
@@ -160,10 +163,15 @@ const useHomeStyles = makeStyles((theme) => ({
     marginRight: "15px",
     marginTop: "15px",
   },
+  tweetWrapper: {
+    textDecoration: "none",
+    color: "inherit",
+  },
 }));
 
 export const Home = () => {
   const classes = useHomeStyles();
+  const history = useHistory();
   const dispatch = useDispatch();
   const tweets = useSelector((state) => state.tweets.items);
   const isLoading = useSelector((state) => state.tweets.loadingState);
@@ -197,55 +205,81 @@ export const Home = () => {
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.tweetsWrapper} variant="outlined">
-            <Paper className={classes.tweetsWrapperHeader} variant="outlined">
-              <Typography variant="h6">Главная</Typography>
-            </Paper>
-            <Paper className={classes.makeTweet}>
-              <div className={classes.makeTweetTop}>
-                <Avatar
-                  className={classes.makeTweetTopAvatar}
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                />
-                <TextareaAutosize
-                  rowsMin={5}
-                  placeholder="Что происходит?"
-                  className={classes.tweetTextArea}
-                  onChange={(e) => setVal(e.target.value)}
-                  value={val}
-                />
-              </div>
-              <div className={classes.makeTweetBottom}>
-                <div className={classes.makeTweetLeft}>
-                  <IconButton color="primary">
-                    <CropOriginalIcon />
-                  </IconButton>
-                  <IconButton color="primary">
-                    <SentimentVerySatisfiedIcon />
-                  </IconButton>
-                </div>
-                <div className={classes.makeTweetRight}>
-                  <CircularProgress
-                    className={classes.circular}
-                    variant="determinate"
-                    value={val.length}
+            <Route path={["/home", "/home/search"]} exact>
+              <Paper className={classes.tweetsWrapperHeader} variant="outlined">
+                <Typography variant="h6">Главная</Typography>
+              </Paper>
+            </Route>
+            <Route path="/home/tweet">
+              <Paper
+                className={classes.tweetsWrapperHeader}
+                variant="outlined"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <IconButton color="primary" onClick={() => history.goBack()}>
+                  <ArrowBackIcon />
+                </IconButton>
+
+                <Typography variant="h6">Твитнуть</Typography>
+              </Paper>
+            </Route>
+            <Route path={["/home", "/home?search?q=:value"]} exact>
+              <Paper className={classes.makeTweet}>
+                <div className={classes.makeTweetTop}>
+                  <Avatar
+                    className={classes.makeTweetTopAvatar}
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                   />
-                  <Button
-                    className={classes.makeTweetBottomButton}
-                    variant="contained"
-                    color="primary"
-                  >
-                    Твитнуть
-                  </Button>
+                  <TextareaAutosize
+                    rowsMin={5}
+                    placeholder="Что происходит?"
+                    className={classes.tweetTextArea}
+                    onChange={(e) => setVal(e.target.value)}
+                    value={val}
+                  />
                 </div>
-              </div>
-            </Paper>
-            {isLoading ? (
-              <Loader />
-            ) : (
-              tweets.map((tweet) => (
-                <Tweet classes={classes} key={tweet._id} {...tweet} />
-              ))
-            )}
+                <div className={classes.makeTweetBottom}>
+                  <div className={classes.makeTweetLeft}>
+                    <IconButton color="primary">
+                      <CropOriginalIcon />
+                    </IconButton>
+                    <IconButton color="primary">
+                      <SentimentVerySatisfiedIcon />
+                    </IconButton>
+                  </div>
+                  <div className={classes.makeTweetRight}>
+                    <CircularProgress
+                      className={classes.circular}
+                      variant="determinate"
+                      value={val.length}
+                    />
+                    <Button
+                      className={classes.makeTweetBottomButton}
+                      variant="contained"
+                      color="primary"
+                    >
+                      Твитнуть
+                    </Button>
+                  </div>
+                </div>
+              </Paper>
+            </Route>
+            <Route path="/home" exact>
+              {isLoading ? (
+                <TweetLoader />
+              ) : (
+                tweets.map((tweet) => (
+                  <Tweet classes={classes} key={tweet._id} {...tweet} />
+                ))
+              )}
+            </Route>
+
+            <Route path="/home/tweet/:id" exact>
+              <FullTweet classes={classes} />
+            </Route>
           </Paper>
         </Grid>
         <Grid item xs={3}>

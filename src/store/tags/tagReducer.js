@@ -1,15 +1,15 @@
 import produce from "immer";
-import { SET_LOADING_STATE, SET_TWEETS } from "./types";
+import { SET_LOADING_STATE, SET_TAGS } from "./types";
 
-const initialTweetsState = {
+const initialTagsState = {
   items: [],
   loadingState: true,
 };
 
-export const tweetReducer = produce((draft, action) => {
+export const tagReducer = produce((draft, action) => {
   const { type, payload } = action;
   switch (type) {
-    case SET_TWEETS:
+    case SET_TAGS:
       draft.items = payload;
       draft.loadingState = false;
       break;
@@ -20,4 +20,4 @@ export const tweetReducer = produce((draft, action) => {
     default:
       break;
   }
-}, initialTweetsState);
+}, initialTagsState);
