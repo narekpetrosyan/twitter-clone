@@ -1,5 +1,5 @@
 import produce from "immer";
-import { SET_LOADING_STATE, SET_TWEETS } from "./types";
+import { ADD_TWEET, SET_LOADING_STATE, SET_TWEETS } from "./types";
 
 const initialTweetsState = {
   items: [],
@@ -11,6 +11,10 @@ export const tweetsReducer = produce((draft, action) => {
   switch (type) {
     case SET_TWEETS:
       draft.items = payload;
+      draft.loadingState = false;
+      break;
+    case ADD_TWEET:
+      draft.items.push(payload);
       draft.loadingState = false;
       break;
     case SET_LOADING_STATE:

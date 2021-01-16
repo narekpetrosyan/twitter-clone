@@ -71,6 +71,7 @@ export const AddTweetForm = () => {
 
   const handleClockAddTweet = () => {
     dispatch(fetchAddTweet(text));
+    setText("");
   };
 
   return (
@@ -107,6 +108,7 @@ export const AddTweetForm = () => {
             className={classes.makeTweetBottomButton}
             variant="contained"
             color="primary"
+            disabled={!text}
             onClick={() => handleClockAddTweet()}
           >
             Твитнуть
