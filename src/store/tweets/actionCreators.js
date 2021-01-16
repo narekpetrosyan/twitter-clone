@@ -1,7 +1,23 @@
-import { FETCH_TWEETS, SET_TWEETS, SET_LOADING_STATE } from "./types";
+import {
+  FETCH_TWEETS,
+  SET_TWEETS,
+  SET_LOADING_STATE,
+  FETCH_ADD_TWEET,
+  ADD_TWEET,
+} from "./types";
 
 export const setTweets = (payload) => ({
   type: SET_TWEETS,
+  payload,
+});
+
+export const fetchAddTweet = (payload) => ({
+  type: FETCH_ADD_TWEET,
+  payload,
+});
+
+export const addTweet = (payload) => ({
+  type: ADD_TWEET,
   payload,
 });
 

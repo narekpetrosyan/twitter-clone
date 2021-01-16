@@ -3,7 +3,6 @@ import { SET_TWEET_DATA, FETCH_TWEET_DATA } from "./types";
 
 const initialTweetState = {
   data: undefined,
-  loadingState: false,
 };
 
 export const tweetReducer = produce((draft, action) => {

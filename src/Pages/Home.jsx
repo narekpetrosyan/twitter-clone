@@ -5,25 +5,20 @@ import {
   makeStyles,
   Paper,
   Typography,
-  TextareaAutosize,
-  Avatar,
-  Button,
-  CircularProgress,
   IconButton,
 } from "@material-ui/core";
 import grey from "@material-ui/core/colors/grey";
 import { Tweet } from "./../components/Tweet/Index";
 import { SideMenu } from "./../components/SideMenu/index";
-import CropOriginalIcon from "@material-ui/icons/CropOriginal";
-import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
 import { RightMenu } from "./../components/RightMenu/index";
 import { DialogAddTweet } from "./../components/SideMenu/DialogAddTweet";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTweets } from "../store/tweets/actionCreators";
 import { TweetLoader } from "./../components/Loaders/TweetLoader";
-import { Link, Route, useHistory } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { FullTweet } from "./components/FullTweet";
+import { AddTweetForm } from "../components/AddTweetForm/AddTweetForm";
 
 const useHomeStyles = makeStyles((theme) => ({
   wrapper: {
@@ -180,8 +175,6 @@ export const Home = () => {
     dispatch(fetchTweets());
   }, [dispatch]);
 
-  const [val, setVal] = React.useState("");
-
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -227,45 +220,7 @@ export const Home = () => {
               </Paper>
             </Route>
             <Route path={["/home", "/home?search?q=:value"]} exact>
-              <Paper className={classes.makeTweet}>
-                <div className={classes.makeTweetTop}>
-                  <Avatar
-                    className={classes.makeTweetTopAvatar}
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                  />
-                  <TextareaAutosize
-                    rowsMin={5}
-                    placeholder="Что происходит?"
-                    className={classes.tweetTextArea}
-                    onChange={(e) => setVal(e.target.value)}
-                    value={val}
-                  />
-                </div>
-                <div className={classes.makeTweetBottom}>
-                  <div className={classes.makeTweetLeft}>
-                    <IconButton color="primary">
-                      <CropOriginalIcon />
-                    </IconButton>
-                    <IconButton color="primary">
-                      <SentimentVerySatisfiedIcon />
-                    </IconButton>
-                  </div>
-                  <div className={classes.makeTweetRight}>
-                    <CircularProgress
-                      className={classes.circular}
-                      variant="determinate"
-                      value={val.length}
-                    />
-                    <Button
-                      className={classes.makeTweetBottomButton}
-                      variant="contained"
-                      color="primary"
-                    >
-                      Твитнуть
-                    </Button>
-                  </div>
-                </div>
-              </Paper>
+              <AddTweetForm classes={classes} />
             </Route>
             <Route path="/home" exact>
               {isLoading ? (

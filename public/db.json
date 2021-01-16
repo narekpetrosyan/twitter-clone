@@ -1,0 +1,82 @@
+{
+  "tweets": [
+    {
+      "id": 1,
+      "_id": "6000272e9190919066a68d6b",
+      "text": "Velit enim minim minim reprehenderit laboris occaecat nisi sit nostrud. Quis commodo laboris sint fugiat esse eu elit nostrud proident duis consequat velit. Aliqua nisi ipsum ex eu qui ullamco proident adipisicing reprehenderit irure qui anim cupidatat est. Labore incididunt laborum occaecat commodo aliqua irure dolore. Magna minim esse pariatur dolore enim mollit elit enim ex non nulla.",
+      "user": {
+        "fullName": "Hutchinson Mcbride",
+        "userName": "Stanley",
+        "avatarUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+      }
+    },
+    {
+      "_id": "eh18y194unw",
+      "text": "give me tweet",
+      "user": {
+        "fullName": "test user",
+        "userName": "test user",
+        "avatarUrl": "https://images.unsplash.com/photo-1610642433569-fb4f62b3795f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
+      },
+      "id": 2
+    }
+  ],
+  "themes": [
+    {
+      "_id": "60018a4535ff86799a0f72e8",
+      "name": "ipsum culpa",
+      "count": 16081
+    },
+    {
+      "_id": "60018a450ef36937512564e5",
+      "name": "dolore enim",
+      "count": 16081
+    },
+    {
+      "_id": "60018a45bd3b4f4b041a134b",
+      "name": "dolor aliquip",
+      "count": 16081
+    },
+    {
+      "_id": "60018a45f4f42efe06c79859",
+      "name": "labore cupidatat",
+      "count": 16081
+    },
+    {
+      "_id": "60018a45b46290f709a52bd1",
+      "name": "laboris est",
+      "count": 16081
+    },
+    {
+      "_id": "60018a4510afb250e8c3da91",
+      "name": "consectetur cupidatat",
+      "count": "16081"
+    }
+  ],
+  "users": [
+    {
+      "_id": "60018aaa7d62122986a42841",
+      "fullName": "Henderson Hendrix",
+      "userName": "Walter",
+      "avatarUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+    },
+    {
+      "_id": "60018aaa5f35ea82bf3a05d6",
+      "fullName": "Chandra Snyder",
+      "userName": "Willa",
+      "avatarUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+    },
+    {
+      "_id": "60018aaa9c650496db84c651",
+      "fullName": "Blake Martinez",
+      "userName": "Jordan",
+      "avatarUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+    },
+    {
+      "_id": "60018aaaf4a68f87fc5c3b61",
+      "fullName": "Sue Bright",
+      "userName": "Janette",
+      "avatarUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+    }
+  ]
+}

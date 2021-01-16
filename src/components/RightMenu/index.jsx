@@ -112,8 +112,8 @@ export const RightMenu = () => {
           <TagLoader />
         ) : (
           tags.map((tag) => (
-            <Link to={`/home/search?q=${tag.name}`}>
-              <Theme key={tag._id} {...tag} classes={classes} />
+            <Link key={tag._id} to={`/home/search?q=${tag.name}`}>
+              <Theme {...tag} classes={classes} />
             </Link>
           ))
         )}

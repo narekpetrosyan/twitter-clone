@@ -2,16 +2,16 @@ import axios from "axios";
 
 export const tweetsApi = {
   fetchTweets() {
+    return axios.get("http://localhost:3001/tweets").then(({ data }) => data);
+  },
+  addTweets(payload) {
     return axios
-      .get("https://my-json-server.typicode.com/narekpetrosyan/rest.api/tweets")
+      .post("http://localhost:3001/tweets", payload)
       .then(({ data }) => data);
   },
   fetchTweetData(id) {
     return axios
-      .get(
-        "https://my-json-server.typicode.com/narekpetrosyan/rest.api/tweets?_id=" +
-          id
-      )
+      .get("http://localhost:3001/tweets?_id=" + id)
       .then(({ data }) => data);
   },
 };
