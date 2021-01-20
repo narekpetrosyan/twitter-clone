@@ -108,8 +108,8 @@ const useHomeStyles = makeStyles((theme) => ({
   },
   tweetFooter: {
     display: "flex",
-    justifyContent: "space-between",
-    width: 450,
+    // justifyContent: "space-between",
+    // width: 450,
   },
   sideMenuTweetutton: {
     padding: theme.spacing(3),

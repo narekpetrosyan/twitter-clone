@@ -20,7 +20,7 @@ export const Tweet = React.memo(({ classes, _id, user, text }) => {
           src={user.avatarUrl}
         />
 
-        <Typography variant="">
+        <Typography>
           <b>{user.fullName}</b>
           <span className={classes.tweetUserName}>@{user.userName}</span>
         </Typography>

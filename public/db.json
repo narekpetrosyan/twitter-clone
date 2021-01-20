@@ -9,6 +9,36 @@
         "userName": "Stanley",
         "avatarUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
       }
+    },
+    {
+      "_id": "ctr54laci9n",
+      "text": "tweet",
+      "user": {
+        "fullName": "test user",
+        "userName": "test user",
+        "avatarUrl": "https://images.unsplash.com/photo-1610642433569-fb4f62b3795f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
+      },
+      "id": 2
+    },
+    {
+      "_id": "qakfxewwds8",
+      "text": "safas",
+      "user": {
+        "fullName": "test user",
+        "userName": "test user",
+        "avatarUrl": "https://images.unsplash.com/photo-1610642433569-fb4f62b3795f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
+      },
+      "id": 3
+    },
+    {
+      "_id": "u3vytbti4o",
+      "text": "asdas",
+      "user": {
+        "fullName": "test user",
+        "userName": "test user",
+        "avatarUrl": "https://images.unsplash.com/photo-1610642433569-fb4f62b3795f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
+      },
+      "id": 4
     }
   ],
   "themes": [

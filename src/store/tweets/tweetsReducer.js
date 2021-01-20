@@ -14,7 +14,7 @@ export const tweetsReducer = produce((draft, action) => {
       draft.loadingState = false;
       break;
     case ADD_TWEET:
-      draft.items.push(payload);
+      draft.items.splice(0, 0, payload);
       draft.loadingState = false;
       break;
     case SET_LOADING_STATE:
